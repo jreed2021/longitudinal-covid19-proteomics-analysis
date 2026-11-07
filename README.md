@@ -31,13 +31,13 @@ This repository documents a reproducible, independent educational secondary anal
 
 ## Reproducing the analysis (primary Jupyter Notebook workflow)
 
-The authoritative analysis is `notebooks/01_Guided_COVID19_Proteomics_Analysis.ipynb`. The output files in `outputs/` and PCA figure in `figures/` should be regenerated from this notebook, not from a separate Python script.
+The authoritative analysis is `notebooks/01_Guided_COVID19_Proteomics_Analysis.ipynb`. The notebook generates CSV outputs and plots locally when executed; these generated files are not required to be stored in the repository. The analysis should be regenerated from the notebook, not from a separate Python script.
 
 1. Download this repository and open the project folder in VS Code or Jupyter.
 2. Use Python 3.10+ and install dependencies: `python -m pip install -r requirements.txt`. Select the corresponding Jupyter kernel.
 3. Download the original published plasma data from the authors' source and put **both files locally** in `data/` using the exact filenames `plasma_npx_level.csv` and `plasma_sample_level.csv`. They are not bundled in this repository.
 4. Open `notebooks/01_Guided_COVID19_Proteomics_Analysis.ipynb` and select **Run All** (or run its cells sequentially). The working directory should be the project root or the `notebooks/` folder.
-5. Review the regenerated CSV tables in `outputs/`, the PCA figure in `figures/`, and the final notebook summary. Save the executed notebook to keep its results visible on GitHub.
+5. Review the analysis tables, PCA visualizations, and final summary in the notebook. Running it also generates CSV tables in `outputs/` and figures in `figures/` locally. These generated files do not need to be committed to GitHub. Save the executed notebook if you want the results visible in GitHub’s notebook preview.
 
 The notebook checks source-data structure and patient/sample mappings and does not alter the original input CSV files. Reproducible execution of this exploratory workflow is distinct from independent biological or clinical validation.
 
@@ -63,8 +63,8 @@ For a fuller study, assess QC metadata from primary authors, time and outcome mi
 
 - `data/`: instructions for obtaining the original public CSV inputs; source CSVs are excluded from this GitHub-ready package.
 - `notebooks/01_Guided_COVID19_Proteomics_Analysis.ipynb`: primary, executable analysis with explanations and results.
-- `outputs/`: data integrity, QC, PCA, and model tables.
-- `figures/pca_plate_covid.png`: exploratory PCA scatter plot.
+- `outputs/`: locally generated integrity, QC, PCA, and model tables; not committed to this repository.
+- `figures/`: selected quality-control visualizations derived from the published research data. Additional figures may be generated locally when the notebook runs.
 - `METHODS_AND_FINDINGS.md`: concise methods and interpretation notes.
 
 ## Resume-ready description (accurate scope)
@@ -75,4 +75,4 @@ For a fuller study, assess QC metadata from primary authors, time and outcome mi
 
 This is an **independent educational secondary analysis**, not the original investigators' pipeline and not affiliated with RTI International. The scientific dataset and original study are by Gisby and colleagues. Links to the original repository and DOI are above; credit them when reusing or presenting the dataset. The notebook workflow and summaries here were developed for this portfolio exercise with AI-assisted code development and analytical review. Verify outputs before treating them as scientific conclusions.
 
-The results files in `outputs/` are derived exploratory artifacts, not clinical advice or validated biomarkers. Patient C105 contributes a pre-positive-swab NEGATIVE sample and subsequent POSITIVE samples; those original sample classifications are preserved, not forcibly made patient-constant. Peak WHO severity is a different patient-level variable.
+The statistical results presented in the Jupyter Notebook are exploratory research findings, not clinical advice or independently validated biomarkers. Patient C105 contributes a pre-positive-swab NEGATIVE sample and subsequent POSITIVE samples; those original sample classifications are preserved, not forcibly made patient-constant. Peak WHO severity is a different patient-level variable.
